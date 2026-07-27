@@ -1,4 +1,14 @@
 import os
+import threading
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+# Renderのスリープ防止（外部からのアクセスを受け取るWebサーバー）
+def run_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(('0.0.0.0', port), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+threading.Thread(target=run_server, daemon=True).start()
 import random
 import discord
 
