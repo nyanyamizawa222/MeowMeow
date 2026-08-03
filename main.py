@@ -56,8 +56,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    # 43%の確率で反応する設定
-    if random.randint(1, 100) <= 43:
+    # 35%の確率で反応する設定
+    if random.randint(1, 100) <= 35:
         meow = random.choice(MEOW_LIST)
         await message.channel.send(meow)
 
