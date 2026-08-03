@@ -56,8 +56,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    meow = random.choice(MEOW_LIST)
-    await message.channel.send(meow)
+    # 5回に1回（20%の確率）だけ反応する設定
+    if random.randint(1, 5) == 1:
+        meow = random.choice(MEOW_LIST)
+        await message.channel.send(meow)
 
 
 # トークン（鍵）の設定
